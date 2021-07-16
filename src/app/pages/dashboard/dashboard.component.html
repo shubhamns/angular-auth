@@ -1,0 +1,21 @@
+<section>
+  <mat-toolbar color="primary">
+    <span class="title-center">Angular 12 Auth App</span>
+  </mat-toolbar>
+
+  <mat-card *ngIf="currentUser" style="text-align: center">
+    <h1>
+      Hi, <br />
+      <span>{{ currentUser.name }}</span>
+    </h1>
+
+    <button
+      mat-raised-button
+      type="button"
+      color="warn"
+      (click)="onLoggedOut()"
+    >
+      Logout
+    </button>
+  </mat-card>
+</section>

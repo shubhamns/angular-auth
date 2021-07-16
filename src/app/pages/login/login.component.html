@@ -1,0 +1,40 @@
+<section>
+  <h1>Login User</h1>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form">
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Email" formControlName="email" />
+      <mat-error *ngIf="!f.email.valid && f.email.touched">
+        {{ getErrorEmail() }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <mat-error *ngIf="!f.password.valid && f.password.touched">
+        {{ getErrorPassword() }}
+      </mat-error>
+    </mat-form-field>
+
+    <div style="text-align: center">
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [class.spinner]="loading"
+        [disabled]="loading"
+      >
+        Submit
+      </button>
+    </div>
+    <br />
+    <button mat-button type="button" [routerLink]="['/register']">
+      Register Here
+    </button>
+  </form>
+</section>
