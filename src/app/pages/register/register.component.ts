@@ -82,6 +82,7 @@ export class RegisterComponent implements OnInit {
         },
         (error: any) => {
           this.loading = false;
+          console.log(error)
           if (error.status === 409) {
             this.openSnackBar(error.message, 'error');
           } else {

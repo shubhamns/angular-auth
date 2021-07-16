@@ -12,7 +12,7 @@ export class UserService {
   constructor(private httpClient: HttpClient) {}
 
   private handleError(error: any) {
-    return throwError(error.error);
+    return throwError(error);
   }
 
   registerUser(user: User): Observable<any> {
