@@ -24,7 +24,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         if (err.status === 403) {
           // auto logout if 403 response returned from api
           this.authService.logout();
-          location.reload(true);
+          location.reload();
         }
         const error = err.error || err.statusText;
         return throwError(error);
