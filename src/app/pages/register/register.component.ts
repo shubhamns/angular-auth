@@ -14,7 +14,8 @@ export class RegisterComponent implements OnInit {
   loading = false;
   submitted = false;
   userForm: FormGroup | any;
-  errorAlert: string = 'This field is required';
+  errorAlert: string = 'This field is required.';
+  apiError: string = 'Something went wrong.';
 
   constructor(
     private router: Router,
@@ -82,11 +83,11 @@ export class RegisterComponent implements OnInit {
         },
         (error: any) => {
           this.loading = false;
-          console.log(error)
+          console.log(error);
           if (error.status === 409) {
-            this.openSnackBar(error.message, 'error');
+            this.openSnackBar(error.message || this.apiError, 'error');
           } else {
-            this.openSnackBar(error.message, 'error');
+            this.openSnackBar(error.message || this.apiError, 'error');
           }
         }
       );
